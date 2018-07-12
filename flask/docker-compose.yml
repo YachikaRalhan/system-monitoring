@@ -1,0 +1,25 @@
+
+version: '2' 
+services:
+    myapp:
+        image: flask-image
+        container_name: "myapp"
+        environment:
+            - ENV=development
+            - FLASK_DEBUG=1
+            - DB=mongodb://mongodb:27017/todoDev
+            - influx=influx 
+        ports:
+            - 8089:8089          
+        links:
+            - mongodb
+            - influx
+        command: python flaskApp.py --debug=8089
+
+    mongodb:
+        image: mongo:latest
+        container_name: "mongodb"
+
+    influx:
+        image: influxdb:latest
+        container_name: "influx"

@@ -1,0 +1,16 @@
+{
+  "cpu": {
+    "mpstat": "mpstat | tail -n +4"
+  },
+  "storage": {
+    "df": "df -h | tail -n +2"
+  },
+  "memory": {
+    "free": "free | tail -n +2 | head -n -1"
+  },
+  "system": "sudo lshw -json",
+  "network": {
+    "netstat": "sudo netstat -tulnpa | tail -n +3"
+  }
+}
+
